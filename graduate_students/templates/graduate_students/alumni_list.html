@@ -1,0 +1,98 @@
+{% extends 'graduate_students/__base.html' %}
+
+{# ########################################### #}
+
+{% block page_title %}List of Alumni{% endblock %}
+{% block title %}List of Alumni{% endblock %}
+
+{# ########################################### #}
+
+{% block page_breadcrumbs %}
+    {{ block.super }}
+    <span class="divider">&gt;</span>
+    Alumni List
+{% endblock %}
+
+{# ########################################### #}
+
+{% block head_style_extra %}
+{{ block.super }}
+<style>
+    th {
+        width: 6em;
+        color: #666666;
+        text-align: right;
+    }
+</style>
+{% endblock head_style_extra %}
+
+{# ########################################### #}
+
+{% block content %}
+
+{% if object_list %}
+    <dl>
+    {% for student in object_list %}
+            <dt>
+                <strong>{{ student }}</strong>
+            </dt>
+            <dd>
+                <table>
+                    <tr>
+                        <th>
+                            Program
+                        </th>
+                        <td>
+                            {{ student.get_program_display }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Graduated
+                        </th>
+                        <td>
+                            {{ student.graduation_date|date:"F Y" }}
+                        </td>
+                    </tr>
+                    {% if student.thesis_title %}
+                    <tr>
+                        <th>
+                            {% if student.program == 'N' %}
+                                Practicum
+                            {% else %}
+                                Thesis
+                            {% endif %}
+                        </th>
+                        <td>
+                            {% if student.thesis_url %}
+                                <a href="{{ student.thesis_url }}">
+                                    {{ student.thesis_title }}
+                                </a>
+                            {% else %}
+                                {{ student.thesis_title }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% if student.advisor.all %}
+                        <tr>
+                            <th>
+                                Advisor{{ student.advisor.all|pluralize }}
+                            </th>
+                            <td>
+                                {{ student.advisor.all|join:', ' }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </dd>
+
+    {% endfor %}
+    </dl>
+{% endif %}
+
+
+{% endblock content %}
+
+
+{# ########################################### #}

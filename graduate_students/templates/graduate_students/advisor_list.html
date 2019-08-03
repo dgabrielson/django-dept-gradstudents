@@ -1,0 +1,49 @@
+{% extends 'graduate_students/__base.html' %}
+
+{# ########################################### #}
+
+{% block page_title %}Graduate Students by Advisor{% endblock %}
+{% block title %}Graduate Students by Advisor{% endblock %}
+
+{# ########################################### #}
+
+{% block content %}
+
+{% if object_list %}
+    <ul>
+        {% for advisor in object_list %}
+            {% with gradstudent_list=advisor.supervisor.active %}
+                {% if gradstudent_list %}
+                    <li>
+                        {% if advisor.get_absolute_url %}
+                            <a href="{{ advisor.get_absolute_url }}">{{ advisor }}</a>
+                        {% else %}
+                            {{ advisor }}
+                        {% endif %}
+                        <ul>
+                            {% for gradstudent in gradstudent_list %}
+                                <li>
+                                    <a href="{{ gradstudent.get_absolute_url }}">
+                                        {{ gradstudent }}
+                                    </a>
+                                    ({{ gradstudent.get_program_display }} program)
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
+
+{# ########################################### #}
+
+{% block page_breadcrumbs %}
+    <span class="divider">&gt;</span>
+    Advisors
+{% endblock %}
+
+{# ########################################### #}

@@ -1,0 +1,42 @@
+{% extends 'admin/app_index.html' %}
+{% load i18n static %}
+
+{# ########################################################## #}
+
+{% block sidebar %}
+{{ block.super }}
+
+<div id="content-related">
+    <div class="module">
+        <h2>{% trans 'Application Links' %}</h2>
+
+        <h3>{% trans 'Quick links' %}</h3>
+
+            <ul class="actionlist">
+                {% url 'admin:graduatestudent_funding_report' as link_url %}
+                {% if link_url %}
+                    <li class="changelink">
+                        <a href="{{ link_url }}" class="historylink">
+                            {% trans 'Funding report' %}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <ul class="actionlist">
+                {% url 'admin:graduatestudent_funding_current_total' as link_url %}
+                {% if link_url %}
+                    <li class="changelink">
+                        <a href="{{ link_url }}" class="historylink">
+                            {% trans 'Current total funding' %}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{# ########################################################## #}

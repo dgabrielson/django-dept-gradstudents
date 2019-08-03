@@ -1,0 +1,169 @@
+{% extends 'graduate_students/__base.html' %}
+
+
+{# ########################################### #}
+
+{% block page_title %}{{ graduatestudent }}{% endblock %}
+{% block title %}{{ graduatestudent }}{% endblock %}
+
+{# ########################################### #}
+
+{% block content %}
+
+<table>
+    {% with url=graduatestudent.person.personpage_set.active.get.get_absolute_url %}
+    <tr>
+        <th>
+            Name
+        </th>
+        <td>
+            {% if url %}
+                <a href="{{ url }}">
+                    {{ graduatestudent }} &rarr;
+                </a>
+            {% else %}
+                {{ graduatestudent }}
+            {% endif %}
+        </td>
+    </tr>
+    {% endwith %}
+    {% if graduatestudent.person.email %}
+        <tr>
+            <th>
+                Email
+            </th>
+            <td>
+                <a href="mailto:{{ graduatestudent.person.email }}">
+                    {{ graduatestudent.person.email }}
+                </a>
+            </td>
+        </tr>
+    {% endif %}
+    {% if graduatestudent.advisor.exists %}
+        <tr>
+            <th>
+                Supervisor{{ graduatestudent.advisor.all|pluralize }}
+            </th>
+            <td>
+                {% for adv in graduatestudent.advisor.all %}
+                    {% with url=adv.personpage_set.active.get.get_absolute_url %}
+                        {% if url %}
+                            <a href="{{ url }}">{{ adv }}</a>{% if not forloop.last %}, {% endif %}
+                        {% else %}
+                            {{ adv }}{% if not forloop.last %}, {% endif %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </td>
+        </tr>
+    {% endif %}
+    <tr>
+        <th>
+            Program
+        </th>
+        <td>
+            {{ graduatestudent.get_program_display }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Status
+        </th>
+        <td>
+            {{ graduatestudent.get_status_display }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Start Date
+        </th>
+        <td>
+            {{ graduatestudent.start_date|date }}
+            {% if graduatestudent.status == 'S' %}
+                ({{ graduatestudent.start_date|timesince }})
+            {% endif %}
+        </td>
+    </tr>
+    {% if graduatestudent.defense_date %}
+        <tr>
+            <th>
+                Defense Date
+            </th>
+            <td>
+                {{ graduatestudent.defense_date|date }}
+            </td>
+        </tr>
+    {% endif %}
+    {% if graduatestudent.thesis_title %}
+        <tr>
+            <th>
+                Thesis title
+            </th>
+            <td>{% if graduatestudent.thesis_url %}
+                    <a href="{{ graduatestudent.thesis_url }}">
+                        {{ graduatestudent.thesis_title }}
+                    </a>
+                {% else %}
+                    {{ graduatestudent.thesis_title }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endif %}
+    {% if graduatestudent.graduation_date %}
+        <tr>
+            <th>
+                Graduation Date
+            </th>
+            <td>
+                {{ graduatestudent.graduation_date|date }}
+                {% if not graduatestudent.graduation_date_confirmed %}
+                    (tentative)
+                {% endif %}
+            </td>
+        </tr>
+    {% endif %}
+    {% for milestone in graduatestudent.milestone_set.active %}
+        <tr>
+            <th>
+                {{ milestone.type }}
+            </th>
+            <td>
+                {{ milestone.date|date }}
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+
+{% url 'gradstudent-update' pk=graduatestudent.pk as link_url %}
+{% if link_url and perms.graduate_students.change_graduatestudent %}
+    <p>
+        <a href="{{ link_url }}">
+            Edit graduate student record &rarr;
+        </a>
+    </p>
+{% endif %}
+
+{% url 'gradstudent-delete' pk=graduatestudent.pk as link_url %}
+{% if link_url and perms.graduate_students.delete_graduatestudent %}
+    <p>
+        <a href="{{ link_url }}">
+            Delete graduate student record &rarr;
+        </a>
+    </p>
+{% endif %}
+
+
+
+{% endblock %}
+
+
+{# ########################################### #}
+
+{% block page_breadcrumbs %}
+    <span class="divider">&gt;</span>
+    {{ graduatestudent }}
+{% endblock %}
+
+{# ########################################### #}

@@ -1,0 +1,41 @@
+{% extends 'graduate_students/__base.html' %} 
+{% load static %}
+
+{# ########################################### #}
+
+{% block page_title %}{% if graduatestudent %}Edit Graduate Student: {{ graduatestudent }}{% else %}Add Graduate Student {% endif %}{% endblock %}
+{% block title %}{% if graduatestudent %}Edit Graduate Student: {{ graduatestudent }}{% else %}Add Graduate Student {% endif %}{% endblock %}
+
+{# ########################################### #}
+
+{% block html_head %}
+{{ block.super }}
+{{ form.media }}
+
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+{% endblock %}
+
+
+
+{# ########################################### #}
+
+{% block content %}
+
+<form action="" method="post" class="form">{% csrf_token %}
+    <table class="table-form">
+        {# form #}
+        {% include 'includes/form.html' %}
+
+        <tr class="submit-row">
+            <td>
+            </td>
+            <td>
+                <input type="submit" name="action" value="Save">
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
+
+{# ########################################### #}

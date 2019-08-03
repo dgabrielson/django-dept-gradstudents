@@ -1,0 +1,178 @@
+[
+{
+    "pk": 1, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 10, 
+        "modified": "2011-04-14T21:02:58Z", 
+        "name": "Science", 
+        "created": "2011-04-14T21:02:58Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 20, 
+        "modified": "2011-04-14T21:03:05Z", 
+        "name": "UMGF", 
+        "created": "2011-04-14T21:03:05Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 30, 
+        "modified": "2011-04-14T21:03:16Z", 
+        "name": "NSERC", 
+        "created": "2011-04-14T21:03:16Z"
+    }
+},
+{
+    "pk": 4, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 40, 
+        "modified": "2011-04-14T21:03:26Z", 
+        "name": "Graduate Studies", 
+        "created": "2011-04-14T21:03:26Z"
+    }
+},
+{
+    "pk": 5, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 50, 
+        "modified": "2013-08-28T16:08:53Z", 
+        "name": "TA2", 
+        "created": "2011-04-14T21:03:35Z"
+    }
+},
+{
+    "pk": 6, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 60, 
+        "modified": "2011-04-14T21:03:46Z", 
+        "name": "Supervisor", 
+        "created": "2011-04-14T21:03:46Z"
+    }
+},
+{
+    "pk": 7, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 100, 
+        "modified": "2011-04-14T21:03:57Z", 
+        "name": "Other", 
+        "created": "2011-04-14T21:03:57Z"
+    }
+},
+{
+    "pk": 8, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 200, 
+        "modified": "2011-04-14T21:04:04Z", 
+        "name": "External", 
+        "created": "2011-04-14T21:04:04Z"
+    }
+},
+{
+    "pk": 9, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2011-08-30T16:03:46Z", 
+        "name": "Marker", 
+        "created": "2011-08-30T16:03:46Z"
+    }
+},
+{
+    "pk": 10, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 55, 
+        "modified": "2011-08-30T19:24:56Z", 
+        "name": "Sessional Instructor", 
+        "created": "2011-08-30T19:24:56Z"
+    }
+},
+{
+    "pk": 11, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2013-05-07T19:09:25Z", 
+        "name": "Invigilator", 
+        "created": "2013-05-07T19:09:25Z"
+    }
+},
+{
+    "pk": 12, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2013-09-10T15:59:18Z", 
+        "name": "Department", 
+        "created": "2013-09-10T15:59:18Z"
+    }
+},
+{
+    "pk": 13, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2013-09-10T16:00:28Z", 
+        "name": "ICM", 
+        "created": "2013-09-10T16:00:28Z"
+    }
+},
+{
+    "pk": 14, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2013-10-03T17:04:44Z", 
+        "name": "GETS", 
+        "created": "2013-10-03T17:04:44Z"
+    }
+},
+{
+    "pk": 15, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2013-10-23T18:41:45Z", 
+        "name": "Co-Supervisor", 
+        "created": "2013-10-23T18:41:45Z"
+    }
+},
+{
+    "pk": 16, 
+    "model": "graduate_students.fundingsource", 
+    "fields": {
+        "active": true, 
+        "ordering": 0, 
+        "modified": "2013-11-20T18:13:28Z", 
+        "name": "TA2 LAB", 
+        "created": "2013-11-20T18:13:28Z"
+    }
+}
+]

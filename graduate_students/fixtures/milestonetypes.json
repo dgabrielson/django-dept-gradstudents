@@ -1,0 +1,36 @@
+[
+{
+    "pk": 1, 
+    "model": "graduate_students.milestonetype", 
+    "fields": {
+        "active": true, 
+        "slug": "program-study", 
+        "modified": "2014-06-12T16:01:58.406Z", 
+        "name": "Program of Study", 
+        "created": "2014-06-12T16:01:58.406Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "graduate_students.milestonetype", 
+    "fields": {
+        "active": true, 
+        "slug": "candidacy-exam", 
+        "modified": "2014-06-12T16:02:16.183Z", 
+        "name": "Candidacy Exam", 
+        "created": "2014-06-12T16:02:16.183Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "graduate_students.milestonetype", 
+    "fields": {
+        "active": true, 
+        "slug": "thesis-proposal", 
+        "modified": "2014-06-12T16:02:27.884Z", 
+        "name": "Thesis Proposal", 
+        "created": "2014-06-12T16:02:27.884Z"
+    }
+}
+]
+

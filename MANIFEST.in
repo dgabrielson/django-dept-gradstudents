@@ -1,0 +1,8 @@
+include requirements.txt
+include LICENSE.txt
+#recursive-include graduate_students/static *
+recursive-include graduate_students/templates *
+
+# added by check_manifest.py
+recursive-include graduate_students *.json
+recursive-include graduate_students *.py

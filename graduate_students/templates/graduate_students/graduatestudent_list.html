@@ -1,0 +1,68 @@
+{% extends 'graduate_students/__base.html' %}
+
+{# ########################################### #}
+
+{% block page_title %}List of Graduate Students{% endblock %}
+{% block title %}List of Graduate Students{% endblock %}
+
+{# ########################################### #}
+
+{% block content %}
+
+{% url 'gradstudent-create' as link_url %}
+{% if link_url and perms.graduate_students.add_graduatestudent %}
+    <p>
+        <a href="{{ link_url }}">
+            Add a graduate student record &rarr;
+        </a>
+    </p>
+{% endif %}
+
+{% if object_list %}
+    {% regroup object_list by get_program_display as gradstudent_groups %}
+    {% for group in gradstudent_groups %}
+        <h2>
+            {{ group.grouper }}
+        </h2>
+        <ul>
+            {% for student in group.list %}
+                <li>
+                    <a href="{{ student.get_absolute_url }}">{{ student }}</a>
+                    {% if student.status != 'S' %}
+                        ({{ student.get_status_display }})
+                    {% endif %}
+                    {% if student.advisor.exists %}
+                        <br>
+                        Supervisor{{ student.advisor.all|pluralize }}:
+                        {% for adv in student.advisor.all %}
+                            {{ adv }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+
+{% url 'gradstudent-advisor-list' as link_url %}
+{% if link_url %}
+    <h3>
+        <a href="{{ link_url }}">
+            List of graduate students by advisor &rarr;
+        </a>
+    </h3>
+{% endif %}
+
+{% url 'gradstudent-alumni-list' as link_url %}
+{% if link_url %}
+    <h3>
+        <a href="{{ link_url }}">
+            Alumni student list &rarr;
+        </a>
+    </h3>
+{% endif %}
+
+{% endblock content %}
+
+
+{# ########################################### #}
